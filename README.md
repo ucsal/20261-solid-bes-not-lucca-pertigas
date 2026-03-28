@@ -1,3 +1,5 @@
+Todo o trabalho realizado foi com cuidado para que o software não parasse em momento nenhum de funcionar, então criei todas as mudanças para que no final apagasse e adaptasse parte do código
+
 No primeiro Commit fiz ajuste na arquitetura, separei o projeto entre 4 packages (Principal, Entity, Service e Command).
 
 Participante
