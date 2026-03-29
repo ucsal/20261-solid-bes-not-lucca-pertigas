@@ -20,4 +20,8 @@ public class ProvaService {
 		return p;
 	}
 	
+	public List<ProvaEntity> listar() {
+		return provas;
+	}
+	
 }
