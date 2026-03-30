@@ -23,7 +23,7 @@ public class QuestaoCommand implements Command{
 		
 		List<ProvaEntity> provas = provaService.listar();
 		
-		if (provas.isEmpty()) {
+		if (provaService.possuiProvas()) {
 			System.out.println("Nenhuma prova cadastrada");
 		}
 		

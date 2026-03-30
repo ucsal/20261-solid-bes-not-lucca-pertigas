@@ -24,4 +24,8 @@ public class ProvaService {
 		return provas;
 	}
 	
+	public boolean possuiProvas() {
+		return !provas.isEmpty();
+	}
+	
 }

@@ -19,4 +19,10 @@ public class QuestaoService {
 			
 			return q;
 		}
+		
+		public List<QuestaoEntity> buscarPorProva(Long provaId) {
+	        return questoes.stream()
+	                .filter(q -> q.getProvaId() == provaId)
+	                .toList();
+	    }
 }
