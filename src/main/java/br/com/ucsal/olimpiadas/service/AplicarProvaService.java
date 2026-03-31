@@ -7,9 +7,11 @@ import br.com.ucsal.olimpiadas.entity.TentativaEntity;
 
 public class AplicarProvaService {
 	private final QuestaoService questaoService;
+	private final TentativaService tentativaService;
 
-	public AplicarProvaService(QuestaoService questaoService) {
+	public AplicarProvaService(QuestaoService questaoService, TentativaService tentativaService) {
 		this.questaoService = questaoService;
+		this.tentativaService = tentativaService;
 	}
 	
 	public TentativaEntity aplicar (long participanteId, long provaId, List<Character> respostas) {
@@ -33,6 +35,7 @@ public class AplicarProvaService {
 			char resposta = respostas.get(i);
 			
 			tentativa.responder(questao, resposta);
+			tentativaService.salvar(tentativa);
 		}
 		
 		return tentativa;
