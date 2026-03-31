@@ -7,7 +7,7 @@ public class ProvaEntity {
 	
 	public ProvaEntity(long id, String titulo) {
 		this.id = id;
-		this.titulo = titulo;
+		setTitulo(titulo);
 	}
 
 	public long getId() {

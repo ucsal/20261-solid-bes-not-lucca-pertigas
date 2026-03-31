@@ -23,8 +23,9 @@ public class QuestaoCommand implements Command{
 		
 		List<ProvaEntity> provas = provaService.listar();
 		
-		if (provaService.possuiProvas()) {
+		if (!provaService.possuiProvas()) {
 			System.out.println("Nenhuma prova cadastrada");
+			return;
 		}
 		
 		System.out.println("Provas disponiveis: ");

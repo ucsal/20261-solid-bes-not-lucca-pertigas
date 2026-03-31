@@ -11,10 +11,6 @@ public class ParticipanteService {
 	
 	public ParticipanteEntity cadastrar (String nome, String email) {
 		
-		if (nome == null || nome.isBlank()) {
-		    throw new IllegalArgumentException("Nome não aceito");
-		}
-		
 		ParticipanteEntity p = new ParticipanteEntity(proximoId, nome, email);
 		p.setId(proximoId++);
 		

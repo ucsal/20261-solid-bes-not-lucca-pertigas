@@ -22,7 +22,7 @@ public class AppConfig {
 		menu.registrar("3", new QuestaoCommand(in, questaoService, provaService));
 		menu.registrar("4", new AplicarProvaCommand(in, provaService, questaoService, aplicarProvaService));
 		menu.registrar("5", new TentativaCommand(tentativaService));
-		menu.registrar("5", new SairCommand());
+		menu.registrar("0", new SairCommand());
 		
 		return menu;
 	}

@@ -27,7 +27,7 @@ public class AplicarProvaCommand implements Command{
 	}
 	
 	public void executar() {
-		if (provaService.possuiProvas()) {
+		if (!provaService.possuiProvas()) {
 			System.out.println("nenhuma prova cadastrada");
 			return;
 		}
