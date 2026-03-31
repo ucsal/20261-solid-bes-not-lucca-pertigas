@@ -7,8 +7,8 @@ public class ParticipanteEntity {
 	
 	public ParticipanteEntity(long id, String nome, String email) {
 		this.id = id;
-		this.nome = nome;
-		this.email = email;
+		setNome(nome);
+		setEmail(email);
 	}
 
 	public long getId() {
@@ -24,7 +24,7 @@ public class ParticipanteEntity {
 	}
 
 	public void setNome(String nome) {
-		if (nome.isBlank() || nome == null) {
+		if (nome == null || nome.isBlank() ) {
 			throw new IllegalArgumentException("Nome invalido");
 		}
 		this.nome = nome.trim();
@@ -40,7 +40,7 @@ public class ParticipanteEntity {
 			return;
 		}
 		
-		if (email.contains("@")) {
+		if (!email.contains("@")) {
 			throw new IllegalArgumentException("Email invalido");
 		}
 		

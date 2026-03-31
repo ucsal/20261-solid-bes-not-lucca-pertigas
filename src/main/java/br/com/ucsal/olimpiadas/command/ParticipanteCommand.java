@@ -21,9 +21,12 @@ public class ParticipanteCommand implements Command{
 		System.out.println("Digite seu email (Opcional)");
 		String email = in.nextLine();
 		
-		var p = participanteService.cadastrar(nome, email);
-		
-		System.out.println("Participante cadastrado com sucesso ID - " + p.getId());
+		try {
+	        var p = participanteService.cadastrar(nome, email);
+	        System.out.println("Participante cadastrado com sucesso ID - " + p.getId());
+	    } catch (IllegalArgumentException e) {
+	        System.out.println(e.getMessage());
+	    }
 		
 	}
 	

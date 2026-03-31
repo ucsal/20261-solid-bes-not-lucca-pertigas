@@ -13,9 +13,11 @@ public class QuestaoService {
 		public QuestaoEntity cadastrarQuestao (long provaId, String enunciado, String[] alternativas, char alternativaCorreta) {
 			QuestaoEntity q = new QuestaoEntity(proximoId, provaId, enunciado, alternativas, alternativaCorreta);
 			
-			q.setId(proximoId);
+			q.setId(proximoId++);
 			
 			questoes.add(q);
+			
+			proximoId++;
 			
 			return q;
 		}

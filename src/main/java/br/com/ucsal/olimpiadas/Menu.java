@@ -19,31 +19,39 @@ public class Menu {
 	}
 	
 	public void iniciar() {
-		exibirMenu();
-		
-		String opcao = in.nextLine();
-		
-		Command command = opcoes.get(opcao);
-		
-		if (command != null) {
-			command.executar();
-		} else {
-			opcaoInvalida();
+		while(true) {
+			exibirMenu();
+			
+			String opcao = in.nextLine();
+			
+			Command command = opcoes.get(opcao);
+			
+			if (command != null) {
+				command.executar();
+				
+				if (opcao.equals("0")) {
+					return;
+				}
+			} else {
+				opcaoInvalida();
+			}
 		}
 	}
 	
-	public void exibirMenu() {
-		System.out.println("\n=== OLIMPÍADA DE QUESTÕES (V1) ===");
-		System.out.println("1) Cadastrar participante");
-		System.out.println("2) Cadastrar prova");
-		System.out.println("3) Cadastrar questão (A–E) em uma prova");
-		System.out.println("4) Aplicar prova (selecionar participante + prova)");
-		System.out.println("5) Listar tentativas (resumo)");
-		System.out.println("0) Sair");
-		System.out.print("> ");
+	private void exibirMenu() {
+		
+		System.out.println("\n=== OLIMPÍADA DE QUESTÕES (V2) ===");
+        System.out.println("1) Cadastrar participante");
+        System.out.println("2) Cadastrar prova");
+        System.out.println("3) Cadastrar questão (A–E)");
+        System.out.println("4) Aplicar prova");
+        System.out.println("5) Listar tentativas (resumo)");
+        System.out.println("0) Sair");
+        System.out.print("> ");
+        
 	}
 	
-	public void opcaoInvalida() {
-		System.out.println("Opcao invalida, tente novamente !");
-	}
+	private void opcaoInvalida() {
+        System.out.println("Opção inválida, tente novamente!");
+    }
 }

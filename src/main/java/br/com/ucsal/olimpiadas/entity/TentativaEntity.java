@@ -3,17 +3,15 @@ package br.com.ucsal.olimpiadas.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.ucsal.olimpiadas.Resposta;
-
 public class TentativaEntity {
 	private long id;
 	private long participanteId;
 	private long provaId;
 
-	private final List<Resposta> respostas = new ArrayList<>();
+	private final List<RespostaEntity> respostas = new ArrayList<>();
 	
 	public void responder(QuestaoEntity q, char marcada) {
-		Resposta r = new Resposta();
+		RespostaEntity r = new RespostaEntity();
 		r.setQuestaoId(q.getId());
 		r.setAlternativaMarcada(marcada);
 		r.setCorreta(q.isRespostaCorreta(marcada));
@@ -24,7 +22,7 @@ public class TentativaEntity {
 	public int calcularNota() {
 		int acertos = 0;
 		
-		for (Resposta r : respostas) {
+		for (RespostaEntity r : respostas) {
 			if (r.isCorreta()) {
 				acertos++;
 			}
@@ -56,7 +54,7 @@ public class TentativaEntity {
 		this.provaId = provaId;
 	}
 
-	public List<Resposta> getRespostas() {
+	public List<RespostaEntity> getRespostas() {
 		return respostas;
 	}
 }

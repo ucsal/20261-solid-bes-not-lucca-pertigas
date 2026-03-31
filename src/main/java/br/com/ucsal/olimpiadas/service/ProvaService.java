@@ -13,9 +13,10 @@ public class ProvaService {
 		
 		ProvaEntity p = new ProvaEntity(proximoId, titulo);
 		
-		p.setId(proximoId);
+		p.setId(proximoId++);
 		
 		provas.add(p);
+		
 		
 		return p;
 	}
