@@ -1,8 +1,8 @@
-package br.com.ucsal.olimpiadas;
+package br.com.ucsal.olimpiadas.entity;
 
 import java.util.Arrays;
 
-public class Questao {
+public class QuestaoEntity {
 
 	private long id;
 	private long provaId;
@@ -12,6 +12,14 @@ public class Questao {
 	private char alternativaCorreta;
 
 	private String fenInicial;
+	
+	public QuestaoEntity(long id, long provaId, String enunciado, String[] alternativas, char alternativaCorreta) {
+		this.id = id;
+		this.provaId = provaId;
+		this.enunciado = enunciado;
+		this.alternativas = alternativas;
+		this.alternativaCorreta = alternativaCorreta;
+	}
 
 	public String getFenInicial() {
 		return fenInicial;
@@ -33,8 +41,12 @@ public class Questao {
 		return provaId;
 	}
 
-	public void setProvaId(long provaId) {
-		this.provaId = provaId;
+	public void setProvaId(Long provaId) {
+		if (provaId == null) {
+			throw new IllegalArgumentException("Prova é obrigatório");
+		} else {
+			this.provaId = provaId;
+		}
 	}
 
 	public String getEnunciado() {
@@ -52,8 +64,15 @@ public class Questao {
 	public void setAlternativas(String[] alternativas) {
 		if (alternativas == null || alternativas.length != 5) {
 			throw new IllegalArgumentException("A questão deve possuir exatamente 5 alternativas.");
+		} else {
+			for (String alt : alternativas) {
+				if (alt == null || alt.isBlank()) {
+					throw new IllegalArgumentException("Alternativas invalidas"); 
+				}
+			}
+			this.alternativas = Arrays.copyOf(alternativas, 5);
 		}
-		this.alternativas = Arrays.copyOf(alternativas, 5);
+		
 	}
 
 	public char getAlternativaCorreta() {
